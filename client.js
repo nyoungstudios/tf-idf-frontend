@@ -2,8 +2,8 @@
 
 function api_call(input) {
     $.ajax({
-        url: "http://0.0.0.0:5000/importantWords?url=http://www.fullychargedshow.co.uk/electric-cars/coal-is-king&top=15",
-//        url: "https://tf-idf.herokuapp.com/importantWords?url=" + input + "&top=15",
+//        url: "http://0.0.0.0:5000/importantWords?url=http://www.fullychargedshow.co.uk/electric-cars/coal-is-king&top=15",
+        url: "https://tf-idf.herokuapp.com/importantWords?url=" + input + "&top=15",
         method: 'GET'
     }).done(function(data) {
 //        console.log(data);
@@ -28,3 +28,11 @@ $(document).ready(function() {
     });
 });
 
+$('#search').focusin(function() {
+    $(document).keypress(function(e) {
+        if(e.which == 13) {
+//            console.log('enter');
+            $('#submit').trigger('click');
+        }
+    });
+});
